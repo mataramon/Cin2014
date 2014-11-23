@@ -1,0 +1,5 @@
+# Compiling instructions 
+# MAC OS X 
+  clang++ -std=c++11 -stdlib=libc++ <archivo> -o cool
+# G++
+  g++ -std=c++11 -stdlib=libc++ <archivo> -o cool
