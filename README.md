@@ -27,3 +27,11 @@ Servidor
 =========
 
 Android
+ La aplicacion android es capaz de obtener la informacion del gps 
+
+-------------------------------------------------------------
+Nota: Si tienen python instalado para compilar los ejemplos
+      solo necesitan ejecutar el archivo compile.py 
+      y se creara la carpeta de build/
+      
+      Esta opción solo es valida para linux/os x 
