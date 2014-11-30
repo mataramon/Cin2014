@@ -7,9 +7,6 @@ import (
 )  
 
 func main() {
-
-
-
   // mux handler
   var server api.Server
   server.Url = "162.243.155.132:5000"
