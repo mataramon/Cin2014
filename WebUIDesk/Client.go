@@ -7,6 +7,7 @@ import (
         "net/http"
         "log"
         "io/ioutil"
+        "time"
         )
 
 /*******************************************/
@@ -41,9 +42,10 @@ func loadWebPage(title string) (*WebPage, error){
 // CLIENT OBJECT 
 // This object download the list of coordenates
 type Client struct{
-    Server  string   // Server URL location 
-    LogFile string   // log file name e.g myclient.log
-    Template string  // Template name for the front end app e.g ui.tmpl 
+    Server   string   // Server URL location 
+    LogFile  string   // log file name e.g myclient.log
+    Template string   // Template name for the front end app e.g ui.tmpl 
+    Ofile    string   // Output file where the list is stored
     Web *WebPage // Web page in memory 
 
 }
@@ -54,12 +56,13 @@ func (self *Client) init() {
     var server   = flag.String("server",  "http://162.243.155.132:3000", "This is the server location to download all files")
     var logfile  = flag.String("logfile", "client.log", "Please entry the log location") 
     var template = flag.String("template", "ui", "Insert the web page template to render eg ui")
+    var outfile  = flag.String("outfile", "items.list", "File to download the locations")
 
     flag.Parse()
     self.Server  = *server
     self.LogFile = *logfile
     self.Template= *template
-
+    self.Ofile   = *outfile
     // Logger
     log_file, err := os.OpenFile(self.LogFile, os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)
     if err != nil{
@@ -94,8 +97,34 @@ func (self *Client) Root (response http.ResponseWriter, rqx *http.Request) {
     fmt.Fprintf(response,"%s", self.Web.Body)
 }
 
+// This function does a request to download the locations.file this 
 func (self *Client) Download() {
+    // Creating download file 
+        f, err := os.Create(self.Ofile + time.Now().Format("2006_01_02_150405"))
+        if err != nil{
+            log.Println("Error creating output file")
+            return
+        }
 
+    // Once the file is created the doing the request
+        resp, err2 := http.Get(self.Server)
+        // Accessing to the response
+        if err2 != nil {
+            log.Println("Error: cannot get updated info from server using Get request")
+            return
+        }
+        
+        defer resp.Body.Close()
+        defer f.Close()
+        
+        body, err3 := ioutil.ReadAll(resp.Body)
+
+        if err3 != nil {
+            log.Println("Error: cannot open the Body from the get request")
+        }
+
+        f.Write(body)
+        f.Sync()
 
 }
 /*END OF ALL DATA STRUCTURES */
