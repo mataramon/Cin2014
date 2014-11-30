@@ -47,6 +47,7 @@ type Client struct{
     Template string   // Template name for the front end app e.g ui.tmpl 
     Ofile    string   // Output file where the list is stored
     Web *WebPage // Web page in memory 
+    Interval time.Duration 
 
 }
 
@@ -57,12 +58,15 @@ func (self *Client) init() {
     var logfile  = flag.String("logfile", "client.log", "Please entry the log location") 
     var template = flag.String("template", "ui", "Insert the web page template to render eg ui")
     var outfile  = flag.String("outfile", "items.list", "File to download the locations")
+    var interval = flag.Int("secs", 100, "Seconds to update and generate a new file")
 
     flag.Parse()
     self.Server  = *server
     self.LogFile = *logfile
     self.Template= *template
     self.Ofile   = *outfile
+    self.Interval =  time.Duration(*interval) * time.Second
+
     // Logger
     log_file, err := os.OpenFile(self.LogFile, os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)
     if err != nil{
@@ -129,12 +133,21 @@ func (self *Client) Download() {
 }
 /*END OF ALL DATA STRUCTURES */
 
+// Go routine to download the ubications
+func update_data(client *Client){
+    for {
+          client.Download()
+          time.Sleep(client.Interval)
+    }
+}
+
 func main() {
     // Load config file
     var Rx Client 
     Rx.init()
     Rx.config()
-
+    // Move to thread
+    go update_data(&Rx)
     // Front end 
     http.HandleFunc("/", Rx.Root,)
     http.ListenAndServe(":8080", nil)
