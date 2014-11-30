@@ -148,6 +148,12 @@ func update_data(client *Client){
     }
 }
 
+// Function to search the nearest neighboard
+func find_nearest(response http.ResponseWriter, rqx *http.Request){
+    // This function will 
+    fmt.Fprintf(response, "In progress")
+}
+
 func main() {
     // Load config file
     var Rx Client 
@@ -157,6 +163,7 @@ func main() {
     go update_data(&Rx)
     // Front end 
     http.HandleFunc("/", Rx.Root,)
+    http.HandleFunc("/Find", find_nearest)
     http.ListenAndServe(":8080", nil)
 
     log.Println("All operations done")
