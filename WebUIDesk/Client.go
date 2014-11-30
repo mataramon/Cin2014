@@ -104,7 +104,9 @@ func (self *Client) Root (response http.ResponseWriter, rqx *http.Request) {
 // This function does a request to download the locations.file this 
 func (self *Client) Download() {
     // Creating download file 
-        f, err := os.Create(self.Ofile + time.Now().Format("2006_01_02_150405"))
+        name := self.Ofile + time.Now().Format("2006_01_02_150405")
+
+        f, err := os.Create(name)
         if err != nil{
             log.Println("Error creating output file")
             return
@@ -129,6 +131,11 @@ func (self *Client) Download() {
 
         f.Write(body)
         f.Sync()
+        // symlink 
+         failure := os.Symlink(name, self.Ofile) 
+        if failure != nil {
+            log.Println("Error: cannot update the symlink to ", self.Ofile)
+        }
 
 }
 /*END OF ALL DATA STRUCTURES */
