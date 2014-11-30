@@ -4,7 +4,7 @@ import (
         "flag"
         "fmt"
         "os"
-        _"net/http"
+        "net/http"
         "log"
         "io/ioutil"
         )
@@ -22,8 +22,9 @@ func (self *WebPage) save() error {
     return ioutil.WriteFile(filename, self.Body,0600)  
 }
 
+// Load web page file
 func loadWebPage(title string) (*WebPage, error){
-    log.Println("Loading web page tempalte file: ", title)
+    log.Println("Loading web page template file: ", title)
 
     filename := title + ".tmpl"
     body, err := ioutil.ReadFile(filename)
@@ -35,6 +36,7 @@ func loadWebPage(title string) (*WebPage, error){
     return &WebPage{Title: title, Body: body}, nil
 }
 
+
 /**************************************/
 // CLIENT OBJECT 
 // This object download the list of coordenates
@@ -42,6 +44,7 @@ type Client struct{
     Server  string   // Server URL location 
     LogFile string   // log file name e.g myclient.log
     Template string  // Template name for the front end app e.g ui.tmpl 
+    Web *WebPage // Web page in memory 
 
 }
 
@@ -65,22 +68,36 @@ func (self *Client) init() {
     //defer log_file.Close()
     log.SetOutput(log_file)
 
+    // Web page loading
+    Web, err := loadWebPage(self.Template)
+    if err != nil{
+        log.Fatalln("Cannot continue error loading the template file", self.Template, err)
+    }
+    self.Web = Web
 
 }
 
 /* Shows the config to be used by the server */
 func (self *Client) config() {
-    log.Println("*******************************************")
+    // Log items
     log.Println("Starting Map Client application")
     log.Println("Remote Server: ", self.Server)
+    log.Println("Logfile      : ", self.LogFile)
+    log.Println("Template     : ", self.Template)
+    // Displaying message for stdout
+    fmt.Println("The Map Client is already started please check the logfile", self.LogFile)
+
+}
+
+// HTML Handler 
+func (self *Client) Root (response http.ResponseWriter, rqx *http.Request) {
+    fmt.Fprintf(response,"%s", self.Web.Body)
 }
 
 func (self *Client) Download() {
 
 
 }
-
-
 /*END OF ALL DATA STRUCTURES */
 
 func main() {
@@ -89,15 +106,22 @@ func main() {
     Rx.init()
     Rx.config()
 
-    Web, err := loadWebPage(Rx.Template)
-    if err != nil{
-        log.Fatalln("Cannot continue error loading the template file", Rx.Template, err)
-    }
-    fmt.Println(string(Web.Body))
-
-
+    // Front end 
+    http.HandleFunc("/", Rx.Root,)
+    http.ListenAndServe(":8080", nil)
 
     log.Println("All operations done")
     log.Println("*******************************************")
 
 }
+
+/* APPLICATION DESCRIPTION 
+ *
+ *   This client   
+ *       -> Post request to the server to get all the current positions.  
+ *       -> The client will download this to a txt file
+ *       
+ *    FRONT - END HTML
+ *       -> will plot all elements in / (root)
+ *       -> There will be a Search Item, where you will see the nearest element to you. 
+ */
