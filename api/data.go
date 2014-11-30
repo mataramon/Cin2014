@@ -77,28 +77,26 @@ func (self * Server) AddRequest(w http.ResponseWriter, req *http.Request){
       }
 }
 
-
-
 // Returns all the elements of the database
 func (self *Server) GetALL(w http.ResponseWriter, req *http.Request){
-    Business_1 := &GeoItem { 
-    Name: "Angel's work",
-    Latitude: "50000",
-    Longitude: "7000",
-  }
-
-    Item,_ := json.Marshal(Business_1)
+    var tmp GeoItem
 
     fmt.Println("Header:")
     fmt.Println(req.Header)
     fmt.Println("Body")
     fmt.Println(req.Body)
-
-    fmt.Fprintf(w, string(Item))
-  
-
+    // Returns all records
+    c := self.Db.DB(self.DbName).C(self.Collection)
+    iter := c.Find(nil).Iter()
+    for { 
+      err := iter.Next(&tmp)
+      if !err {
+        break
+      }
+      // Otherwise let's print 
+      fmt.Fprintf(w, "%s,%s,%s\n", tmp.Name, tmp.Latitude, tmp.Longitude)
+    }
 }
-
 
 
 /* BASIC OPERATIONS*/
