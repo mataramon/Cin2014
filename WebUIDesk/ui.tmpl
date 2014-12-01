@@ -8,21 +8,36 @@
 
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
 
         <style type="text/css">
             #map {
-                width:900px;
+                float: left;
+                width:70%;
                 height:500px;
             }
+
+            #geoitems {
+                float:right;
+                width:30%;
+
+            }
+
         </style>
-
-
 
         <!-- Java scripts items -->
         <script type="text/javascript">
+            <!-- -->
+            var reader;
+        
+            <!-- Function to be executed at the load-->
             window.onload = function () {
+                console.log("Setting map view with OpenStreetMap and Leaflet");
+                reader = new FileReader();
+                console.log("Setting file reader");
+
                 var map = L.map('map').setView([43.07265,-89.400929], 10);
                  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                               attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -30,21 +45,79 @@
                  L.marker([43.07265,-89.400929]).addTo(map).bindPopup('Science Hall<br>Where the GISC was born.').openPopup();
             };
 
+
+            function file_handler(selection) {
+                var output = "";
+                console.log("Selecting file");
+                if (selection.files && selection.files[0]){
+                    reader.onload = function (e) {
+                        output = e.target.result;
+                        displayContents(output);
+                    };
+                    reader.readAsText(selection.files[0]);
+                    return true;
+                }
+                return false;
+            }
+
+            function displayContents(txt){
+                // expliting the text into lines
+                var vector = txt.replace( /\n/g, " " ).split( " " );
+                var output = [];
+                output.push('<table class="pure-table"><tbody>');
+                output.push('<thead><tr><th>Nombre</th><th>Latitud</th><th>Longitud</th></tr></thead>');
+                var items
+
+                for (var i = 0; i < vector.length;i++){
+                    items = vector[i].split("\,");
+                    console.log("found_ "+ items.length);
+                    if (items.length == 3) {
+                        output.push('<tr>');
+                        for (var j= 0; j < items.length;j++){
+                            console.log("Inserting -> " + items[j]);
+                            output.push('<td>'+items[j]+'</td>');
+                        }
+                        output.push('</tr>');
+                        console.log("cool");
+                    }
+                }
+                output.push('</tbody></table>');
+                var display = '';
+                for (var i = 0; i < output.length; i++){
+                    display+=output[i];
+                }
+
+                var docItem = document.getElementById("geoitems");
+                console.log(output);
+
+                docItem.innerHTML = display;
+            }
+
+
         </script>
 
     </head>
 
     <body>
+
+
         <form class="pure-form">
             <fieldset>
                 <legend>Bienvenido al sistema de busqueda</legend>
                 <input type="text" class="pure-input-rounded" placeholder="Requiere tu nombre" required>
                 <button type="submit" class="pure-button">Buscar cercanos</button>
+                <input type="file" onchange='file_handler(this)'/>
 
             </fieldset>
         </form>
 
          <div id="map"></div>
+         
+
+         <div id='geoitems'>
+
+         </div>
+
 
     </body>
 

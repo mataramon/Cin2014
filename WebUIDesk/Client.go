@@ -135,6 +135,7 @@ func (self *Client) Download() {
          failure := os.Symlink(name, self.Ofile) 
         if failure != nil {
             log.Println("Error: cannot update the symlink to ", self.Ofile)
+	    log.Println("Error info: ", failure)
         }
 
 }
