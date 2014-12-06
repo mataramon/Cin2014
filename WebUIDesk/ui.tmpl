@@ -31,6 +31,7 @@
         <script type="text/javascript">
             <!-- -->
             var reader;
+            var map;
         
             <!-- Function to be executed at the load-->
             window.onload = function () {
@@ -38,11 +39,11 @@
                 reader = new FileReader();
                 console.log("Setting file reader");
 
-                var map = L.map('map').setView([43.07265,-89.400929], 10);
+                 map = L.map('map').setView([20.6667,-103.3500],10);
                  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                               attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                             }).addTo(map);
-                 L.marker([43.07265,-89.400929]).addTo(map).bindPopup('Science Hall<br>Where the GISC was born.').openPopup();
+           
             };
 
 
@@ -76,7 +77,9 @@
                         for (var j= 0; j < items.length;j++){
                             console.log("Inserting -> " + items[j]);
                             output.push('<td>'+items[j]+'</td>');
+                            // Adding to the principal OpenStreetMap
                         }
+                        L.marker([items[1],items[2]]).addTo(map).bindPopup(items[0]).openPopup();
                         output.push('</tr>');
                         console.log("cool");
                     }
