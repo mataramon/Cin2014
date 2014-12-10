@@ -10,8 +10,8 @@ class GeoItem:
     def __init__(self, name):
          #Generating random elements
          self.name = name
-         self.latitude = random.randrange(-90.0000000,90.0000000)-random.random()
-         self.longitude= random.randrange(100.0000000,120.0000000)-random.random()
+         self.latitude = random.randrange(20,25)-random.random()
+         self.longitude= random.randrange(-104,-97)-random.random()
          self.latitude  = round(self.latitude, 7)
          self.longitude = round(self.longitude, 7)
 
@@ -34,8 +34,8 @@ class GeoItem:
 def main():
     print "Generating boots"
     #generaring 1000 bots 
-    for i in xrange(10):
-        Item = GeoItem("Padts Bot {0}".format(i))
+    for i in xrange(3000):
+        Item = GeoItem("PadtsBot{0}".format(i))
         # Sending request to the server to store information
         Item.send_data()
 
