@@ -4,8 +4,8 @@ Cin2014
 
 Week 1 
 ============================================================
-class 1 - Using c structures as objects 
-class 2 - Using c++ objects - encapsulation
+* class 1 - Using c structures as objects 
+* class 2 - Using c++ objects - encapsulation
 
 HOMEWORK 1
 =============================================================
