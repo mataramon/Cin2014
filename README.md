@@ -1,37 +1,31 @@
 Cin2014
 =======
 
-Lista de archivos
 
-Ejemplos c/c++
+Week 1 
+============================================================
+class 1 - Using c structures as objects 
+class 2 - Using c++ objects - encapsulation
 
-basic_array.c 
-   Ejemplo basico para crear un arreglo y reservar memoria
+HOMEWORK 1
+=============================================================
 
-basic_generics.cpp
-   Ejemplo con uso de templates, los templates estan declarados en 
-   generics.h
+You have a set [] of objects  with the following attributes
 
-basic_threads.cpp
-   Ejemplo basico con threads c++11
+    Name
+    Latitude
+    Longitude
 
-factorial_example.cpp
-   Ejemplo calculando el factorial con multiples threads
+Input: Name
 
-=========
+Output: Nearst neighbor
+You must find the nearest element to the selected item. 
 
-Servidor 
-  El servidor esta hecho en golang, el archivo server.go es el principal 
-  y las estructuras de datos estan declaradas en la carpeta api 
-
-=========
-
-Android
- La aplicacion android es capaz de obtener la informacion del gps 
+Please create a folder in class2/projects/<your name> 
 
 -------------------------------------------------------------
-Nota: Si tienen python instalado para compilar los ejemplos
-      solo necesitan ejecutar el archivo compile.py 
-      y se creara la carpeta de build/
-      
-      Esta opción solo es valida para linux/os x 
+
+
+
+
+
