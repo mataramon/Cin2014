@@ -22,6 +22,12 @@ class Coordenada{
 	  void Latitude(double lat){latitude = lat;}
 };
 
+class Coordenada_4ta : Coordenada {
+	public:
+             Coordenada_4ta(){cout<<"Hola 4ta\n";}
+};
+
+
 Coordenada::Coordenada(){ 
        cout<<latitude<<"\n";
        cout<<longitude<<"\n";
@@ -40,15 +46,16 @@ Coordenada::~Coordenada(){
 
 int main(){
    cout<<"Hola padts\n";
-   SCoordenada padts1;
+   Coordenada_4ta init;
+   /*SCoordenada padts1;
    padts1.latitude = long(1.200202);
    {
      Coordenada padts3("Torito");
-   }
+   }*/
      
-   Coordenada padts2("Diego");
-   padts2.Latitude(2.20099999);
-   cout<<padts2.Latitude()<<"\n";
+   //Coordenada padts2("Diego");
+   //padts2.Latitude(2.20099999);
+   //cout<<padts2.Latitude()<<"\n";
 
    return 1;
 }
