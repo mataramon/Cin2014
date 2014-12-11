@@ -36,7 +36,7 @@ def main():
     #generaring 1000 bots
     file = open('test_data.data', 'w')
 
-    for i in xrange(10000000):
+    for i in xrange(1000000):
         Item = GeoItem("PadtsBot{0}".format(i))
         # Sending request to the server to store information
         file.write("{0},{1},{2}\n".format(Item.name, Item.latitude, Item.longitude))
