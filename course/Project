@@ -1,0 +1,8 @@
+Project
+
+bin      -> binaries                 
+etc      -> configuration   
+include  -> Headers
+lib      -> Compiled libraries 
+Main            
+
