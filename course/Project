@@ -6,3 +6,18 @@ include  -> Headers
 lib      -> Compiled libraries 
 Main            
 
+What kind of libraries do we want?
+
+a) Audio 
+b) Image
+c) Algorithms (Sort/Search)
+d) IO
+   -> USB Port
+   -> Socket manipulation
+e) GUI 
+   -> Qt
+   -> Gtk
+
+Projects example:
+
+Identify words 
