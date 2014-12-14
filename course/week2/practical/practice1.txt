@@ -1,0 +1,7 @@
+the files provided from the http://www.linuxhowtos.org/C_C++/socket.htm
+Provides an example of how to use a socket in gnu linux
+
+1- server.c
+2- client.c
+
+
