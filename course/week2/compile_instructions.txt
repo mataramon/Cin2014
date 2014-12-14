@@ -1,0 +1,7 @@
+# Instruction for open gl 
+  g++ 01double.cpp -lglut -lGL
+
+# Create a library
+  -> For audio
+  -> Video
+  -> Plot library
