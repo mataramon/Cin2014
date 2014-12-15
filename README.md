@@ -25,6 +25,26 @@ Please create a folder in class2/projects/<your name>
 
 -------------------------------------------------------------
 
+Week 2 [Pratice week]
+============================================================
+This week we will see the following topics
+
+--------------------------------
+|  Theoretical Points          |
+--------------------------------
+
+ 1- Inheritance modes | public, private, protected
+ 2- Operator overload 
+ 3- Pointer to base class
+
+--------------------------------
+| Practical points             |
+--------------------------------
+
+ 1- Create a library
+    -> Audio
+    -> Image
+    -> Port communication i.g usb
 
 
 
