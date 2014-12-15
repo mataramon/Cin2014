@@ -25,7 +25,7 @@ Please create a folder in class2/projects/<your name>
 
 -------------------------------------------------------------
 
-Week 2 [Pratice week]
+Week 2 [Practice week]
 ============================================================
 This week we will see the following topics
 
@@ -46,6 +46,31 @@ This week we will see the following topics
     -> Image
     -> Port communication i.g usb
 
+Final Project
+======================================================
+1- Select a problem to solve to create a useful application. e.g 
+     a- A security system using some embedded system like arduino, and by pass that information
+         to a desktop application. 
+     b- A voice detector or object detection. 
+  
+Requisites of the app 
+      The application must be separated in the following structure. 
+
+      [Libraries            ]       = Third party or own libraries     (C++) 
+      [Business Core  ]       = Logic part of your application (C++)
+      [User experience]      = Graphical user interface        (Python, Perl, Ruby) + (GTK, Qt, etc)
+      [Installer/Uninstaller]  = A proper way to handle and install your software with all the dependencies (Bash, Python, Perl) 
+
+Select your target OS
+       Windows
+       Linux 
+       OS X
+
+Evaluation %
+=========================================================
+Final Project 40 %  (Team of 3)
+Oral exam     30 %  (10-15 min per person) 
+Homeworks     30 %  (Groupal and per person) 
 
 
 
