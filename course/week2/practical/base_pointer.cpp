@@ -15,8 +15,8 @@ class Base {
 	Base(string name){this->name = name;}
  	
         void hello(){cout<<"Hello from "<<name<<"\n";}
-        // virtual hello(){cout<<"Hello from "<<name<<"\n";}
-        // virtual void hello() = 0;
+        //virtual void hello(){cout<<"Hello from "<<name<<"\n";}
+        //virtual void hello() = 0;
 };
 
 class Son : public Base {
@@ -54,11 +54,11 @@ void show(Base*);
 
 int main(){
     cout<<"Levels\n";
-    Base myBase;
+    //Base myBase;
     Son  mySon;
     GrandSon myGrandSon;
 
-    myBase.hello();
+    //myBase.hello();
     mySon.hello();
     myGrandSon.hello();
 
@@ -78,8 +78,8 @@ int main(){
     ptr_son->hello();
     cout<<"---- Actions\n";
     //show(&myBase);
-    //show(&mySon);
-    //show(&myGrandSon);    
+    show(&mySon);
+    show(&myGrandSon);    
 
 }
 
