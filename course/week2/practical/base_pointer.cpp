@@ -14,9 +14,15 @@ class Base {
 	Base(){name = "Base";}
 	Base(string name){this->name = name;}
  	
+<<<<<<< HEAD
         void hello(){cout<<"Hello from "<<name<<"\n";}
         //virtual void hello(){cout<<"Hello from "<<name<<"\n";}
         //virtual void hello() = 0;
+=======
+        //void hello(){cout<<"Hello from "<<name<<"\n";}
+        //virtual void hello(){cout<<"Hello from "<<name<<"\n";}
+        virtual void hello() = 0;
+>>>>>>> 37829458680fc81349948143690b7a9c89729b63
 };
 
 class Son : public Base {
