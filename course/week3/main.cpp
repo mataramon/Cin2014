@@ -14,9 +14,15 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    string location = "/Users/leofigy/Desktop/myaudio.wav";
+    string location = "/Users/leofigy/Desktop/finalaudio.wav";
     auto file = load_wavefile(location);
-    //cout<<"it is empty :("<<file->Id<<"\n";
+    
+    if (file != nullptr){
+        file->display();
+        
+    }else{
+        cout<<"Not memory assigned\n";
+    }
 
 
     return 0;

@@ -19,8 +19,8 @@ using namespace std;
 
 /* We use this in order to allocate the datatypes */
 union IntType{
-    unsigned int a:16;  // only uses 16 bits
-    unsigned int b:32;  // only uses 32 bits
+    int a:16;  // only uses 16 bits
+    int b:32;  // only uses 32 bits
 };
 
 
@@ -58,12 +58,13 @@ class WavFile {
         char*   data;
         WavFile();
        ~WavFile();
+        void display(void);
     
 };
 
 // Functions to save the wave file
 void save_wavefile(WavFile*);
 WavFile* load_wavefile(string);
-
+IntType char2int(char* , unsigned int);
 
 #endif
