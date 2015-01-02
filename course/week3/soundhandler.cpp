@@ -49,7 +49,11 @@ void WavFile::display(void){
     cout<<sizeof(FmtID) <<" bytes :"<<FmtID<<"\n";
     cout<<FmtSize.b<<"\n";
     cout<<FmtAudioFormat.a<<"\n";
-    
+    cout<<FmtChannels.a<<"\n";      // 2
+    cout<<FmtSampleRate.b<<"\n";    // 4
+    cout<<FmtByteRate.b<<"\n";      // 4
+    cout<<FmtBlockAlign.a<<"\n";    // 2
+    cout<<FmtBitsPerSample.a<<"\n"; // 2
     
 }
 
@@ -97,7 +101,18 @@ WavFile* load_wavefile(string location) {
         neue->FmtSize = char2int(C32bit, 4);
         wavefile.read(C16bit, 2);
         neue->FmtAudioFormat = char2int(C16bit, 2);   // 2
-        
+        wavefile.read(C16bit, 2);
+        neue->FmtChannels = char2int(C16bit, 2);      // 2
+        wavefile.read(C32bit, 4);
+        neue->FmtSampleRate = char2int(C32bit, 4);    // 4
+        /*
+        wavefile.read(C32bit, 4);
+        neue->FmtByteRate = char2int(C32bit, 4);      // 4
+        wavefile.read(C16bit, 2);
+        neue->FmtBlockAlign = char2int(C16bit, 2);    // 2
+        wavefile.read(C16bit, 2);
+        neue->FmtBitsPerSample = char2int(C16bit, 2); // 2
+        */
         wavefile.close();
         
     }
@@ -117,9 +132,11 @@ IntType char2int(char* item , unsigned int size){
     int suma = 0;
     
     for (int i=0; i<size; i++){
-        //printf("-> %02x\n",item[i]);
+           printf("-> %02x\n",item[i]);
         suma += (int(item[i])<<8*i);
     }
+    
+    cout<<hex<<suma<<"\n";
     
     if (size == 2){
         result.a = suma;
