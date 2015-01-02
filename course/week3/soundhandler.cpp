@@ -43,17 +43,30 @@ WavFile::WavFile(){
 }
 
 void WavFile::display(void){
-    cout<<sizeof(Id)<<" bytes :"<<Id<<"\n";
-    cout<<ChuckSize.b<<"\n";
-    cout<<sizeof(Format)<<" bytes :"<<Format<<"\n";
-    cout<<sizeof(FmtID) <<" bytes :"<<FmtID<<"\n";
-    cout<<FmtSize.b<<"\n";
-    cout<<FmtAudioFormat.a<<"\n";
-    cout<<FmtChannels.a<<"\n";      // 2
-    cout<<FmtSampleRate.b<<"\n";    // 4
-    cout<<FmtByteRate.b<<"\n";      // 4
-    cout<<FmtBlockAlign.a<<"\n";    // 2
-    cout<<FmtBitsPerSample.a<<"\n"; // 2
+    cout<<"ID             : "<<Id<<"\n";
+    cout<<"Chunck Size    : "<<ChuckSize.b<<"\n";
+    cout<<"Format         : "<<Format<<"\n";
+    cout<<"Format ID      : "<<FmtID<<"\n";
+    cout<<"Format Size    : "<<FmtSize.b<<"\n";
+    cout<<"Audio Format   : "<<FmtAudioFormat.a<<"\n";
+    cout<<"Channels       : "<<FmtChannels.a<<"\n";      // 2
+    cout<<"Sample Rate    : "<<FmtSampleRate.b<<"\n";    // 4
+    cout<<"Byte   Rate    : "<<FmtByteRate.b<<"\n";      // 4
+    cout<<"Block  Align   : "<<FmtBlockAlign.a<<"\n";    // 2
+    cout<<"Bits per Sample: "<<FmtBitsPerSample.a<<"\n"; // 2
+    cout<<"Data ID        : "<<DataID<<"\n";
+    cout<<"Data Size      : "<<DataSize.b<<"\n";
+    cout<<"------------------FILE CONTENT---------------------\n";
+    for (int i=0;i<DataSize.b;i++){
+        
+        unsigned int pref = data[i];
+        // removing zeros only 8 bytes
+        pref = pref<<24;
+        pref = pref>>24;
+        printf("%02x ", pref);
+        if (i % 30 == 0) cout<<"\n"; 
+    }
+    cout<<"------------------END CONTENT-----------------------\n";
     
 }
 
@@ -105,14 +118,22 @@ WavFile* load_wavefile(string location) {
         neue->FmtChannels = char2int(C16bit, 2);      // 2
         wavefile.read(C32bit, 4);
         neue->FmtSampleRate = char2int(C32bit, 4);    // 4
-        /*
+        
         wavefile.read(C32bit, 4);
         neue->FmtByteRate = char2int(C32bit, 4);      // 4
         wavefile.read(C16bit, 2);
         neue->FmtBlockAlign = char2int(C16bit, 2);    // 2
         wavefile.read(C16bit, 2);
         neue->FmtBitsPerSample = char2int(C16bit, 2); // 2
-        */
+        wavefile.read(neue->DataID, 4);
+        wavefile.read(C32bit, 4);
+        neue->DataSize = char2int(C32bit, 4);
+        // Loading all the samples
+        neue->data = new char[neue->DataSize.b];
+        // Loading all the file to memory
+        wavefile.read(neue->data, neue->DataSize.b);
+        
+        
         wavefile.close();
         
     }
@@ -125,19 +146,21 @@ WavFile* load_wavefile(string location) {
 
 
 IntType char2int(char* item , unsigned int size){
-    // Little endian son 5
+    // Little endian
     //   less           most
     //    []   []  []  []
     IntType result;
     int suma = 0;
     
     for (int i=0; i<size; i++){
-           printf("-> %02x\n",item[i]);
-        suma += (int(item[i])<<8*i);
+        unsigned int pref = item[i];
+        // removing zeros only 8 bytes
+        pref = pref<<24;
+        pref = pref>>24;
+        suma += (pref<<8*i);
+
     }
-    
-    cout<<hex<<suma<<"\n";
-    
+        
     if (size == 2){
         result.a = suma;
     }
