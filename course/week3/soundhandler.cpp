@@ -83,7 +83,6 @@ WavFile* load_wavefile(string location) {
     char C32bit[4];
     char C16bit[2];
     
-    
     if (wavefile.is_open()){
         size = wavefile.tellg();
         wavefile.seekg(0, ios::beg);
@@ -131,7 +130,6 @@ WavFile* load_wavefile(string location) {
         neue->data = new char[neue->DataSize.b];
         // Loading all the file to memory
         wavefile.read(neue->data, neue->DataSize.b);
-        
         
         wavefile.close();
         
