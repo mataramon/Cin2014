@@ -13,6 +13,7 @@
 #include <map>
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -21,18 +22,6 @@ using namespace std;
 union IntType{
     int a:16;  // only uses 16 bits
     int b:32;  // only uses 32 bits
-};
-
-
-// Applies a transformation to an audio file
-
-class Sound {
-    
-    public:
-         Sound();
-        ~Sound();
-
-
 };
 
 // Loading an encoding file
@@ -62,9 +51,42 @@ class WavFile {
     
 };
 
+// Applies a transformation to an audio file
+/*------------- MONO CLASS -----------*/
+class Sound {
+    protected: // Protected items will be privete in the derivate class
+        vector<IntType> mono;
+        string type;
+    public:
+         Sound(WavFile*);
+        ~Sound();
+        // accessors
+        string Type(void) const  {return type;      }
+        void   Type(string type) {this->type = type;}
+};
+/*---------- END MONO CLASS -------------*/
+
+/*---------- START STEREO CLASS ---------*/
+class SoundStereo  : public Sound{
+    private:
+        vector<IntType> left;
+        vector<IntType> right;
+        
+    public:
+        SoundStereo(WavFile*);
+       ~SoundStereo();
+       // Accessors
+       
+};
+
+/*---------- END STEREO CLASS   ----------*/
+
 // Functions to save the wave file
 void save_wavefile(WavFile*);
 WavFile* load_wavefile(string);
 IntType char2int(char* , unsigned int);
+// fUNCT
+
+Sound* get_vectors(WavFile*);
 
 #endif

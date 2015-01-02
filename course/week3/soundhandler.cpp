@@ -13,11 +13,6 @@
 #include "soundhandler.h"
 
 
-//
-Sound::Sound(){}
-
-Sound::~Sound(){}
-
 WavFile::WavFile(){
     
     for (int i= 0;i<4;i++){
@@ -58,14 +53,16 @@ void WavFile::display(void){
     cout<<"Data Size      : "<<DataSize.b<<"\n";
     cout<<"------------------FILE CONTENT---------------------\n";
     for (int i=0;i<DataSize.b;i++){
-        
         unsigned int pref = data[i];
         // removing zeros only 8 bytes
         pref = pref<<24;
         pref = pref>>24;
         printf("%02x ", pref);
-        if (i % 30 == 0) cout<<"\n"; 
+        if (i % 30 == 0) cout<<"\n";
     }
+    
+    //cout<<"left:"<<left<<"\n";
+    
     cout<<"------------------END CONTENT-----------------------\n";
     
 }
@@ -74,7 +71,6 @@ WavFile::~WavFile(){
     // Release all pointers
     delete data;
 }
-
 
 WavFile* load_wavefile(string location) {
     WavFile *neue = nullptr;
@@ -141,6 +137,30 @@ WavFile* load_wavefile(string location) {
     return neue;
 }
 
+Sound::Sound(WavFile* data){
+    // we use short to take the bits per sample 
+    type = "mono";
+    // Number of bits to be used
+
+
+    // Then reading the number of items that fills in size
+    for (int i=0; i<data->DataSize.b;i++){
+                
+           
+    }
+}
+
+Sound::~Sound(){
+    
+}
+
+SoundStereo::SoundStereo(WavFile* data) : Sound(data){
+    // Overwriting then type
+    this->type = "stereo";
+}
+
+SoundStereo::~SoundStereo(){  
+}
 
 IntType char2int(char* item , unsigned int size){
     // Little endian
@@ -155,7 +175,6 @@ IntType char2int(char* item , unsigned int size){
         pref = pref<<24;
         pref = pref>>24;
         suma += (pref<<8*i);
-
     }
         
     if (size == 2){
@@ -168,10 +187,26 @@ IntType char2int(char* item , unsigned int size){
     return result;
 }
 
-
-
 void save_wavefile(WavFile* wavfile) {
     
-    
-    
 }
+
+Sound* get_vectors(WavFile* data){
+    // Pointer to base class
+    Sound *sound = nullptr;
+    
+    switch (data->FmtChannels.a){
+        case 1:
+            sound = new Sound(data);
+            break;
+        case 2:
+            sound = new SoundStereo(data);
+            break;
+        default:
+            cout<<"Error: cannot create a container for this number of channels: "<<data->FmtChannels.a<<"\n";
+            break;
+    }
+    
+    return sound;
+}
+
