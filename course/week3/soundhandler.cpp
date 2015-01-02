@@ -87,8 +87,7 @@ WavFile* load_wavefile(string location) {
     if (wavefile.is_open()){
         size = wavefile.tellg();
         wavefile.seekg(0, ios::beg);
-        char *items = new char[size];
-
+        
         // starting the data structure
         if (size < 4) {
             cout<<"Error: File two small cannot get the header\n";
