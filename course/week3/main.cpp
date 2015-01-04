@@ -20,23 +20,19 @@ int main(int argc, const char * argv[]) {
     if (file != nullptr){
         file->display();
         
+        // Dummy example
+        Sound *sound = nullptr;
+        sound = new Sound(file);
+        cout<<sound->Type()<<"\n";
+        delete sound;
+        sound = new SoundStereo(file);
+        cout<<sound->Type()<<"\n";
+        delete sound;
+        
     }else{
         cout<<"Not memory assigned\n";
     }
 
-    // memory
-    cout<<sizeof(char)<<"\n";
-    cout<<sizeof(int)<<"\n";
-    cout<<sizeof(string)<<"\n";
-    
-    // Dummy example
-    Sound *sound = nullptr;
-    sound = new Sound(file);
-    cout<<sound->Type()<<"\n";
-    delete sound;
-    sound = new SoundStereo(file);
-    cout<<sound->Type()<<"\n";
-    delete sound;
-    
+
     return 0;
 }

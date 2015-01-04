@@ -108,6 +108,13 @@ WavFile* load_wavefile(string location) {
         neue->FmtSize = char2int(C32bit, 4);
         wavefile.read(C16bit, 2);
         neue->FmtAudioFormat = char2int(C16bit, 2);   // 2
+        if (neue->FmtAudioFormat.a != 1) {
+            cout<<"Error: Currently only PCM Format = 1 is supported\n";
+            delete neue;
+            return nullptr;
+        }
+        
+        
         wavefile.read(C16bit, 2);
         neue->FmtChannels = char2int(C16bit, 2);      // 2
         wavefile.read(C32bit, 4);
