@@ -148,13 +148,18 @@ Sound::Sound(WavFile* data){
     // we use short to take the bits per sample 
     type = "mono";
     // Number of bits to be used
-
-
+    int bytes = data->FmtBitsPerSample.a/8;
+    
     // Then reading the number of items that fills in size
-    for (int i=0; i<data->DataSize.b;i++){
-                
-           
+    for (int i=0; i<data->DataSize.b;i=i+bytes){
+        auto value = char2int(&(data->data[i]), bytes);
+        //cout<<"Mono: "<<i<<"\n";
+
+        mono.push_back(value);
     }
+    cout<<"Mono information\n";
+    cout<<"Channel 1: "<<mono.size()<<" samples\n";
+
 }
 
 Sound::~Sound(){
@@ -162,8 +167,30 @@ Sound::~Sound(){
 }
 
 SoundStereo::SoundStereo(WavFile* data) : Sound(data){
+    // The difference are the channels
+    // with two channels
+    // [ LEFT RIGHT ] 16 bits per sample, but with two channels is 32 bits each sample
+    
     // Overwriting then type
     this->type = "stereo";
+    // Number of bits to be used
+    int bytes = data->FmtBitsPerSample.a/8;
+    
+    for (int i=0; i<data->DataSize.b-bytes;i=i+(2*bytes)){
+        auto value = char2int(&(data->data[i]), bytes);
+        //cout<<"left "<<i<<"\n";
+        left.push_back(value);
+    }
+    
+    for (int i=bytes; i<data->DataSize.b;i=i+(2*bytes)){
+        auto value = char2int(&(data->data[i]), bytes);
+        //cout<<"right "<<i<<"\n";
+        right.push_back(value);
+    }
+    
+    cout<<"Stereo information\n";
+    cout<<"Channel 1: "<<left.size()<<" samples\n";
+    cout<<"Channel 2: "<<right.size()<<" samples\n";
 }
 
 SoundStereo::~SoundStereo(){  

@@ -13,21 +13,26 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    string location = "clap.wav";
+    SoundStereo* stereo = nullptr;
+    Sound* sound = nullptr;
+    
+    //string location = "gtr.wav"; // Mono
+    string location = "clap.wav"; // stereo
+    
     auto file = load_wavefile(location);
     
     if (file != nullptr){
         file->display();
         
-        // Dummy example
-        Sound *sound = nullptr;
-        sound = new Sound(file);
-        cout<<sound->Type()<<"\n";
-        delete sound;
-        sound = new SoundStereo(file);
-        cout<<sound->Type()<<"\n";
-        delete sound;
+        sound = get_vectors(file);
+        if (sound == nullptr){
+            cout<<"Sound:Error: Not format compatible found\n";
+            return 1;
+        }
+        // Using the right object
+        if (sound->Type() == "Stereo"){
+            stereo = static_cast<SoundStereo*>(sound);
+        }
         
     }else{
         cout<<"Not memory assigned\n";
