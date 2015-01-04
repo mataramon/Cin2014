@@ -14,7 +14,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    string location = "pacman_x.wav";
+    string location = "clap.wav";
     auto file = load_wavefile(location);
     
     if (file != nullptr){
