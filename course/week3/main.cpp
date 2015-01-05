@@ -1,4 +1,3 @@
-//
 //  main.cpp
 //  Sound
 //
@@ -17,7 +16,7 @@ int main(int argc, const char * argv[]) {
     Sound* sound = nullptr;
     
     //string location = "gtr.wav"; // Mono
-    string location = "clap.wav"; // stereo
+    string location = "init.wav"; // stereo
     
     auto file = load_wavefile(location);
     
