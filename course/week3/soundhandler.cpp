@@ -162,6 +162,17 @@ Sound::Sound(WavFile* data){
 
 }
 
+vector<float> Sound::Signal(){
+    vector<float> items;
+    auto max_val = max_element(this->mono.begin(), this->mono.end(), abs_val);
+    for (auto &i : this->mono){
+        float magnitude = i.b/max_val->b;
+        items.push_back(magnitude);
+    }
+    return items;
+} 
+
+
 Sound::~Sound(){
     
 }
@@ -193,6 +204,33 @@ SoundStereo::SoundStereo(WavFile* data) : Sound(data){
     cout<<"Channel 2: "<<right.size()<<" samples\n";
 }
 
+vector<vector<float>> SoundStereo::Signal(){
+    vector<vector<float>> items;
+    vector<float> Left ;
+    vector<float> Right;
+    
+    auto max_val = max_element(this->left.begin(), this->left.end(), abs_val);
+    
+    for (auto &i : this->left){
+        float magnitude = i.b/max_val->b;
+        Left.push_back(magnitude);
+    }
+    
+    max_val = max_element(this->right.begin(), this->right.end(), abs_val);
+    
+    for (auto &i : this->right){
+        float magnitude = i.b/max_val->b;
+        Right.push_back(magnitude);
+    }
+    
+    items.push_back(Left);
+    items.push_back(Right);
+    
+    return items;
+} 
+
+
+
 SoundStereo::~SoundStereo(){  
 }
 
@@ -201,6 +239,7 @@ IntType char2int(char* item , unsigned int size){
     //   less           most
     //    []   []  []  []
     IntType result;
+    result.b = 0; // cleaning the value
     int suma = 0;
     
     for (int i=0; i<size; i++){
@@ -223,6 +262,7 @@ IntType char2int(char* item , unsigned int size){
 
 void save_wavefile(WavFile* wavfile) {
     
+    
 }
 
 Sound* get_vectors(WavFile* data){
@@ -242,5 +282,9 @@ Sound* get_vectors(WavFile* data){
     }
     
     return sound;
+}
+
+static bool abs_val(IntType x, IntType y){
+    return (abs(x.b) < abs(y.b));
 }
 
