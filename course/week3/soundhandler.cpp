@@ -63,7 +63,7 @@ void WavFile::display(void){
     
     //cout<<"left:"<<left<<"\n";
     
-    cout<<"------------------END CONTENT-----------------------\n";
+    cout<<"\n------------------END CONTENT-----------------------\n";
     
 }
 

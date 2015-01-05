@@ -15,7 +15,7 @@ fi
 
 if [ $OS = "Darwin" ]
     then
-    clang++ main.cpp soundhandler.cpp -std=c++11 -stdlib=libc++-o "$OS"_wave.exec;
+    clang++ main.cpp soundhandler.cpp -std=c++11 -stdlib=libc++ -o "$OS"_wave.exec;
 fi
 
 echo "Execution privs"
