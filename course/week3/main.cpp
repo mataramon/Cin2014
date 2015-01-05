@@ -1,4 +1,3 @@
-//
 //  main.cpp
 //  Sound
 //
@@ -13,30 +12,39 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    string location = "/Users/leofigy/Desktop/finalaudio.wav";
+    SoundStereo* stereo = nullptr;
+    Sound* sound = nullptr;
+    
+    //string location = "gtr.wav"; // Mono
+    string location = "init.wav"; // stereo
+    
     auto file = load_wavefile(location);
     
     if (file != nullptr){
         file->display();
         
+        sound = get_vectors(file);
+        if (sound == nullptr){
+            cout<<"Sound:Error: Not format compatible found\n";
+            return 1;
+        }
+        cout<<"Type found: "<<sound->Type()<<"\n";
+        // Using the right object
+        if (sound->Type() == "stereo"){
+            stereo = static_cast<SoundStereo*>(sound);
+            cout<<"okay \n";
+            auto normalized = stereo->Signal();
+            
+            for (auto &i: normalized[0]){
+                cout<<"item:"<<i<<"\n";
+            }
+            
+        }
+        
     }else{
         cout<<"Not memory assigned\n";
     }
 
-    // memory
-    cout<<sizeof(char)<<"\n";
-    cout<<sizeof(int)<<"\n";
-    cout<<sizeof(string)<<"\n";
-    
-    // Dummy example
-    Sound *sound = nullptr;
-    sound = new Sound(file);
-    cout<<sound->Type()<<"\n";
-    delete sound;
-    sound = new SoundStereo(file);
-    cout<<sound->Type()<<"\n";
-    delete sound;
-    
+
     return 0;
 }

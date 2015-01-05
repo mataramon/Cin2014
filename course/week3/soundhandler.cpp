@@ -63,7 +63,7 @@ void WavFile::display(void){
     
     //cout<<"left:"<<left<<"\n";
     
-    cout<<"------------------END CONTENT-----------------------\n";
+    cout<<"\n------------------END CONTENT-----------------------\n";
     
 }
 
@@ -108,6 +108,13 @@ WavFile* load_wavefile(string location) {
         neue->FmtSize = char2int(C32bit, 4);
         wavefile.read(C16bit, 2);
         neue->FmtAudioFormat = char2int(C16bit, 2);   // 2
+        if (neue->FmtAudioFormat.a != 1) {
+            cout<<"Error: Currently only PCM Format = 1 is supported\n";
+            delete neue;
+            return nullptr;
+        }
+        
+        
         wavefile.read(C16bit, 2);
         neue->FmtChannels = char2int(C16bit, 2);      // 2
         wavefile.read(C32bit, 4);
@@ -141,23 +148,88 @@ Sound::Sound(WavFile* data){
     // we use short to take the bits per sample 
     type = "mono";
     // Number of bits to be used
-
-
+    int bytes = data->FmtBitsPerSample.a/8;
+    
     // Then reading the number of items that fills in size
-    for (int i=0; i<data->DataSize.b;i++){
-                
-           
+    for (int i=0; i<data->DataSize.b;i=i+bytes){
+        auto value = char2int(&(data->data[i]), bytes);
+        //cout<<"Mono: "<<i<<"\n";
+
+        mono.push_back(value);
     }
+    cout<<"Mono information\n";
+    cout<<"Channel 1: "<<mono.size()<<" samples\n";
+
 }
+
+vector<float> Sound::Signal(){
+    vector<float> items;
+    auto max_val = max_element(this->mono.begin(), this->mono.end(), abs_val);
+    for (auto &i : this->mono){
+        float magnitude = float(i.b)/float(abs(max_val->b));
+        items.push_back(magnitude);
+    }
+    return items;
+} 
 
 Sound::~Sound(){
     
 }
 
 SoundStereo::SoundStereo(WavFile* data) : Sound(data){
+    // The difference are the channels
+    // with two channels
+    // [ LEFT RIGHT ] 16 bits per sample, but with two channels is 32 bits each sample
+    
     // Overwriting then type
     this->type = "stereo";
+    // Number of bits to be used
+    int bytes = data->FmtBitsPerSample.a/8;
+    
+    for (int i=0; i<data->DataSize.b-bytes;i=i+(2*bytes)){
+        auto value = char2int(&(data->data[i]), bytes);
+        //cout<<"left "<<i<<"\n";
+        left.push_back(value);
+    }
+    
+    for (int i=bytes; i<data->DataSize.b;i=i+(2*bytes)){
+        auto value = char2int(&(data->data[i]), bytes);
+        //cout<<"right "<<i<<"\n";
+        right.push_back(value);
+    }
+    
+    cout<<"Stereo information\n";
+    cout<<"Channel 1: "<<left.size()<<" samples\n";
+    cout<<"Channel 2: "<<right.size()<<" samples\n";
+
 }
+
+vector<vector<float>> SoundStereo::Signal(){
+    vector<vector<float>> items;
+    vector<float> Left ;
+    vector<float> Right;
+    
+    auto max_val = max_element(this->left.begin(), this->left.end(), abs_val);
+    
+    cout<<"max value:"<<max_val->a<<"\n";
+    
+    for (auto &i : this->left){
+        float magnitude = float(i.a)/float(abs(max_val->a));
+        Left.push_back(magnitude);
+    }
+    
+    max_val = max_element(this->right.begin(), this->right.end(), abs_val);
+    
+    for (auto &i : this->right){
+        float magnitude = float(i.b)/float(abs(max_val->b));
+        Right.push_back(magnitude);
+    }
+    
+    items.push_back(Left);
+    items.push_back(Right);
+    
+    return items;
+} 
 
 SoundStereo::~SoundStereo(){  
 }
@@ -167,6 +239,7 @@ IntType char2int(char* item , unsigned int size){
     //   less           most
     //    []   []  []  []
     IntType result;
+    result.b = 0; // cleaning the value
     int suma = 0;
     
     for (int i=0; i<size; i++){
@@ -189,6 +262,7 @@ IntType char2int(char* item , unsigned int size){
 
 void save_wavefile(WavFile* wavfile) {
     
+    
 }
 
 Sound* get_vectors(WavFile* data){
@@ -208,5 +282,9 @@ Sound* get_vectors(WavFile* data){
     }
     
     return sound;
+}
+
+static bool abs_val(IntType x, IntType y){
+    return (abs(x.a) < abs(y.a));
 }
 

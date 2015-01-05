@@ -14,6 +14,8 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -63,6 +65,9 @@ class Sound {
         // accessors
         string Type(void) const  {return type;      }
         void   Type(string type) {this->type = type;}
+        vector<float> Signal(); 
+        
+        
 };
 /*---------- END MONO CLASS -------------*/
 
@@ -76,17 +81,17 @@ class SoundStereo  : public Sound{
         SoundStereo(WavFile*);
        ~SoundStereo();
        // Accessors
+       vector<vector<float>> Signal();
        
 };
 
 /*---------- END STEREO CLASS   ----------*/
 
-// Functions to save the wave file
+/* GENERIC PROTOTYPES FOR MISC FUNCTIONS*/
 void save_wavefile(WavFile*);
 WavFile* load_wavefile(string);
 IntType char2int(char* , unsigned int);
-// fUNCT
-
+static bool abs_val(IntType, IntType);
 Sound* get_vectors(WavFile*);
 
 #endif
