@@ -87,12 +87,11 @@ class SoundStereo  : public Sound{
 
 /*---------- END STEREO CLASS   ----------*/
 
-// Functions to save the wave file
+/* GENERIC PROTOTYPES FOR MISC FUNCTIONS*/
 void save_wavefile(WavFile*);
 WavFile* load_wavefile(string);
 IntType char2int(char* , unsigned int);
 static bool abs_val(IntType, IntType);
-// fUNCT
 Sound* get_vectors(WavFile*);
 
 #endif
