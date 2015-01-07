@@ -2,6 +2,7 @@
 #include "operations.h"
 #define EOF (-1)
 
+
 #ifdef __cplusplus    // If used by C++ code, 
 extern "C" {          // we need to export the C interface
 #endif
@@ -29,10 +30,14 @@ namespace OurFoo{
 
 }
 
- __declspec(dllexport) int __cdecl  get_item(void){
+   // __declspec(dllexport)    
+
+  __declspec(dllexport) int __cdecl get_item(void){
+	  auto value = OurFoo::Human("jolines");
 	return 10;
  }
 
+ 
 #ifdef __cplusplus
 }
 #endif
