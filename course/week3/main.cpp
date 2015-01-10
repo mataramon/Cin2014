@@ -16,27 +16,32 @@ int main(int argc, const char * argv[]) {
     Sound* sound = nullptr;
     
     //string location = "gtr.wav"; // Mono
-    string location = "init.wav"; // stereo
+    string location = "init6.wav"; // stereo
     
     auto file = load_wavefile(location);
-    
     if (file != nullptr){
-        file->display();
         
+        file->display();
         sound = get_vectors(file);
+        
         if (sound == nullptr){
             cout<<"Sound:Error: Not format compatible found\n";
             return 1;
         }
+        
         cout<<"Type found: "<<sound->Type()<<"\n";
         // Using the right object
-        if (sound->Type() == "stereo"){
-            stereo = static_cast<SoundStereo*>(sound);
+
+        int cont = 0;
+        if (sound->Type() == "mono"){
+            //stereo = static_cast<SoundStereo*>(sound);
             cout<<"okay \n";
-            auto normalized = stereo->Signal();
+            auto normalized = sound->Signal();
             
             for (auto &i: normalized[0]){
-                cout<<"item:"<<i<<"\n";
+                cout<<cont<<"\t"<<i<<"\n";
+
+                cont++;
             }
             
         }

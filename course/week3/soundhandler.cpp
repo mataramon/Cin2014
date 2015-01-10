@@ -52,14 +52,14 @@ void WavFile::display(void){
     cout<<"Data ID        : "<<DataID<<"\n";
     cout<<"Data Size      : "<<DataSize.b<<"\n";
     cout<<"------------------FILE CONTENT---------------------\n";
-    for (int i=0;i<DataSize.b;i++){
+    /*for (int i=0;i<DataSize.b;i++){
         unsigned int pref = data[i];
         // removing zeros only 8 bytes
         pref = pref<<24;
         pref = pref>>24;
         printf("%02x ", pref);
-        if (i % 30 == 0) cout<<"\n";
-    }
+        if (i % 32  == 0) cout<<"\n";
+    }*/
     
     //cout<<"left:"<<left<<"\n";
     
@@ -91,8 +91,8 @@ WavFile* load_wavefile(string location) {
         // Allocating memory
         neue = new WavFile();
         wavefile.read(neue->Id, 4);
-        // Comparing if we have the RIFF value
         
+        // Comparing if we have the RIFF value
         if (strcmp(neue->Id, "RIFF") != 0){
             cout<<"Error: File has a different format is not a wav file\n";
             delete neue;
@@ -260,9 +260,12 @@ IntType char2int(char* item , unsigned int size){
     return result;
 }
 
-void save_wavefile(WavFile* wavfile) {
+void save_wavefile(WavFile* data, string newName) {
     
-    
+    ifstream modifiedFile (newName, ios:: out | ios::binary);
+
+
+
 }
 
 Sound* get_vectors(WavFile* data){
