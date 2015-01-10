@@ -1,0 +1,36 @@
+#!/usr/bin/python
+import sys
+import os
+import subprocess
+from PyQt4 import QtCore, QtGui, uic
+
+form_class = uic.loadUiType("Sound_padts.ui")[0]         
+ 
+class MyWindowClass(QtGui.QMainWindow, form_class):
+    def __init__(self, parent=None):
+        QtGui.QMainWindow.__init__(self, parent)
+        self.setupUi(self)
+        self.btn_play.clicked.connect(self.btn_play_clicked)
+        self.btn_inf.clicked.connect(self.btn_inf_clicked)
+        self.btn_compile.clicked.connect(self.btn_compile_clicked)
+        #Progress Bar
+        self.btn_bar.setValue(0)
+        #self.menubar.addAction(exitAction)
+
+    def btn_play_clicked(self):                   
+        subprocess.call(["aplay", "-vv", "output.wav"])
+        for i in range(0, 100):
+        	self.btn_bar.setValue(i)
+    def btn_inf_clicked(self):                  
+        subprocess.call(["aplay", "-vv", "../examples/Dinero.wav"])
+        for i in range(0, 100):
+        	self.btn_bar.setValue(i)
+    def btn_compile_clicked(self):
+    	subprocess.call(["bash", "compile.sh"])
+    	for i in range(0, 100):
+        	self.btn_bar.setValue(i)
+ 
+app = QtGui.QApplication(sys.argv)
+myWindow = MyWindowClass(None)
+myWindow.show()
+app.exec_()
