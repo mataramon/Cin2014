@@ -7,22 +7,21 @@ using std::endl;
 using irrklang::createIrrKlangDevice;
 using irrklang::vec3df;
 
-SoundEffect::SoundEffect(std::string filename/*="lilium.wav"*/): filename_(filename) { 
+SoundEffect::SoundEffect(std::string filename/*="lilium.wav"*/) { 
 	engine_ = createIrrKlangDevice();
 }
 
-void SoundEffect::play(bool loop/*=false*/) {
-	filename_ = "media/" + filename_;
+void SoundEffect::play(std::string filenames, bool loop/*=false*/) {
+	filenames = "media/" + filenames;	
+	cout << "Playing: " << filenames << endl;
 	cout << "Press ESC to quit" << endl;
-	cout << "Playing: " << filename_ << endl;
-	engine_->play2D(filename_.c_str(), loop);
+	engine_->play2D(filenames.c_str(), loop);
 	while (true) {
 		int key = getch();
 		if (key == 27)
 			break; // user pressed ESCAPE key
-	} 
+	}	
 }
-
 
 void SoundEffect::playBackground(std::string background, std::string foreground) {
 	background = "media/" + background;
@@ -56,7 +55,7 @@ void SoundEffect::playSurround(std::string filename) {
 	if (music_)
 		music_->setMinDistance(5.0f);
 	cout << "\nPlaying streamed sound in 3D." << endl;
-	cout << "Press ESCAPE to quit, any other key to play sound at random position." << endl << endl;
+	cout << "Press ESC to quit, any other key to play sound at random position." << endl << endl;
 	cout << "+ = Listener position" << endl;
 	cout << "o = Playing sound" << endl;
 	float posOnCircle = 0;

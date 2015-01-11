@@ -411,6 +411,7 @@ void SoundStereo::reverse()
 // Funcion para guardar archivo .wav
 void save_wavefile(WavFile* wavfile, std::string outputfile)
 {
+	outputfile = "media/" + outputfile;
     if (wavfile)
 	{
 		char ptr4[32];

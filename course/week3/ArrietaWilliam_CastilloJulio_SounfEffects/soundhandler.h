@@ -93,7 +93,7 @@ class SoundStereo  : public Sound{
 /*---------- END STEREO CLASS   ----------*/
 
 /* GENERIC PROTOTYPES FOR MISC FUNCTIONS*/
-void save_wavefile(WavFile* wavfile, std::string outputfile="media/new_file.wav");
+void save_wavefile(WavFile* wavfile, std::string outputfile="outputfile.wav");
 WavFile* load_wavefile(string);
 IntType char2int(char* , unsigned int);
 static bool abs_val(IntType, IntType);
