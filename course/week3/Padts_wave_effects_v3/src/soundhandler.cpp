@@ -380,8 +380,6 @@ void process(string file1, string file2){
             TheFkResult << byteA;
          }
         
-
-
         FromFileA.close();
         FromFileB.close();
         TheFkResult.close();
