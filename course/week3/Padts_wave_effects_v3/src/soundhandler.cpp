@@ -355,6 +355,8 @@ void process(string file1, string file2){
         unsigned int delay2 = 44100; //44100*.2 
         char* buffer = new char[leng2];
         
+
+        /*
         for(int i = 0; i < leng2-44 ; i++){
                 byteB = readByte(FromFileA);
                 buffer[i]=byteB;
@@ -368,15 +370,15 @@ void process(string file1, string file2){
           
                 TheFkResult << buffer[i];
         }
-        
+        */
         // MIXING EFFECT: Line 372 to 379
-        /*FromFileB.seekg(44,ios::beg);
+        FromFileB.seekg(44,ios::beg);
         for(int i= 0 ; i < leng2-44 ; i++) {
             byteB = readByte(FromFileA);
             byteC = readByte(FromFileB); 
             byteA = byteB + byteC*8;    // <- Here add the data drom a to b
             TheFkResult << byteA;
-         }*/
+         }
         
 
 
