@@ -37,8 +37,8 @@ int main() {
 		
 			else 
 			{
-				std::string Recorted = (FirstWord.Sorting(Word_1)).substr (0,2);
-				std::string Recorted_0 = (SecondWord.Sorting(myArray[i])).substr (0,2);
+				std::string Recorted = (FirstWord.Sorting(Word_1)).substr (0,3);
+				std::string Recorted_0 = (SecondWord.Sorting(myArray[i])).substr (0,3);
 				if ((strcmp(Recorted.c_str(), Recorted_0.c_str()) == 0 ))
 				{
 					Word_2 = myArray[i];
