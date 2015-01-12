@@ -1,4 +1,4 @@
-echo "Creating object code";
+echo "Creating object code"
 # -Wall = warning all
 # fPIC  = preserve the flags used
 # -c    = compile and generate the assembly but not run the linker
