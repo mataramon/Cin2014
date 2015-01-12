@@ -3,7 +3,7 @@ use strict;
 
 sub main(){
     my ($search_name, $source_file, $out_file, $data_file) = undef, undef, undef,undef;
-    $search_name = shift @ARGV or $search_name="miguel"    ;
+    $search_name = shift @ARGV or $search_name="PadtsBot101"    ;
     $source_file = shift @ARGV or $source_file="search.cpp";
     $out_file    = shift @ARGV or $out_file   ="search.exe";  
     $data_file   = shift @ARGV or $data_file  ="data.dat"  ;

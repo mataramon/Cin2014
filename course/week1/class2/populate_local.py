@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-import random 
+import random
 import urllib2
 import json
 
@@ -24,19 +24,19 @@ class GeoItem:
           "longitude": str(self.longitude)
         }
         request = urllib2.Request("http://162.243.155.132:3000/")
-        request.add_header('Content-Type', 'application/json') 
+        request.add_header('Content-Type', 'application/json')
         response = urllib2.urlopen(request, json.dumps(data))
         print response.read()
         print "-> {0}".format(data)
         #print "result: {0}".format(response)
-        
-         
+
+
 def main():
     print "Generating boots"
     #generaring 1000 bots
     file = open('test_data.data', 'w')
 
-    for i in xrange(1000000):
+    for i in xrange(10000):
         Item = GeoItem("PadtsBot{0}".format(i))
         # Sending request to the server to store information
         file.write("{0},{1},{2}\n".format(Item.name, Item.latitude, Item.longitude))

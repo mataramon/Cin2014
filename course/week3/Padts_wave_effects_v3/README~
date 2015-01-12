@@ -1,0 +1,22 @@
+########################## PLEASE READ BEFORE USE #######################################
+Dependencies un GNU/Linux Systems:
+  -PyQT4
+  -alsa-utils
+  
+######################### Run steps (GUI):
+-> Go to src folder and run the maingui python script.
+-> The user window appear, clic in the button "Compile" and wait some time, look at the progress bar.
+-> Now you can play the sound generated using the "Play" button.
+-> That's all folk's!
+
+######################## Run steps (without GUI):
+-> Go to src folder and run the "compile.sh" script.
+-> In the same folder, the "output.wav" is generated, play with your favorite media player.
+
+####################### Limitations:
+-> For now, only mono wave files are supported (16 bit PCM).
+
+###################### Effects Selection:
+-> In soundhandler.cpp uncomment just one effect of sound.
+ ECHO EFFECT: Line 354 to 370  by default selected.
+ MIXING EFFECT: Line 372 to 379
