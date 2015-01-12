@@ -25,6 +25,7 @@ class Coordenada{
 		static bool sortBy_Y(const Coordenada &coordenada1, const Coordenada &coordenada2){ return coordenada1.y < coordenada2.y; }
 };
 
+<<<<<<< HEAD
 double DistanceCalculated(double x1, double y1, double x2, double y2)
 {
 	double x = x1 - x2;
@@ -35,6 +36,8 @@ double DistanceCalculated(double x1, double y1, double x2, double y2)
 	return Distance;
 }
 
+=======
+>>>>>>> 9ddcc7d064300a6fd7a7765d61b14eb24b3c887f
 int main(){
 
 	string Location,Name,FinalName;

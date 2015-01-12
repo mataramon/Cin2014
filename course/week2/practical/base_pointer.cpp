@@ -15,14 +15,24 @@ class Base {
 	Base(string name){this->name = name;}
  	
 <<<<<<< HEAD
+<<<<<<< HEAD
       //  void hello(){cout<<"Hello from "<<name<<"\n";}
       //   virtual void  hello(){cout<<"Hello from "<<name<<"\n";}
          virtual void hello() = 0;
 =======
+        void hello(){cout<<"Hello from "<<name<<"\n";}
+        //virtual void hello(){cout<<"Hello from "<<name<<"\n";}
+        //virtual void hello() = 0;
+>>>>>>> 9ddcc7d064300a6fd7a7765d61b14eb24b3c887f
+=======
         //void hello(){cout<<"Hello from "<<name<<"\n";}
         //virtual void hello(){cout<<"Hello from "<<name<<"\n";}
         virtual void hello() = 0;
+<<<<<<< HEAD
 >>>>>>> 17fb0e58523a1942346ca89b1f9cd0edcacdd63f
+=======
+>>>>>>> 37829458680fc81349948143690b7a9c89729b63
+>>>>>>> 9ddcc7d064300a6fd7a7765d61b14eb24b3c887f
 };
 
 class Son : public Base {

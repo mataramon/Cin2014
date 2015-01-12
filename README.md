@@ -46,6 +46,23 @@ This week we will see the following topics
     -> Image
     -> Port communication i.g usb
 
+Week 3 [Evaluation week]
+============================================================
+This week we will see the following topics
+
+--------------------------------
+|  Theoretical Points          |
+--------------------------------
+ 1- Templates
+ 2- Design principles when building a library
+ 
+--------------------------------
+| Practical points             |
+--------------------------------
+1- Load a wav file into memory and applied some transformation.
+2- Oral exam (Wednesday 10 mins for each student)
+
+
 Final Project
 ======================================================
 1- Select a problem to solve to create a useful application. e.g 
