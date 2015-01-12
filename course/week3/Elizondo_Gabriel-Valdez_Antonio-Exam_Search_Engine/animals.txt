@@ -1,0 +1,10 @@
+dog
+cat
+cow
+deer
+bird
+tiger
+lion
+dunkey
+elephant
+chicken
