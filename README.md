@@ -33,15 +33,15 @@ This week we will see the following topics
 |  Theoretical Points          |
 --------------------------------
 
- 1- Inheritance modes | public, private, protected
- 2- Operator overload 
- 3- Pointer to base class
+* Inheritance modes | public, private, protected
+* Operator overload 
+* Pointer to base class
 
 --------------------------------
 | Practical points             |
 --------------------------------
 
- 1- Create a library
+ * Create a library
     -> Audio
     -> Image
     -> Port communication i.g usb
@@ -53,27 +53,28 @@ This week we will see the following topics
 --------------------------------
 |  Theoretical Points          |
 --------------------------------
- 1- Templates
- 2- Design principles when building a library
+ * Templates
+ * Design principles when building a library
  
 --------------------------------
 | Practical points             |
 --------------------------------
-1- Load a wav file into memory and applied some transformation.
-2- Oral exam (Wednesday 10 mins for each student)
+* Load a wav file into memory and applied some transformation.
+* Oral exam (Wednesday 10 mins for each student)
 
 Week 4 [Theoretical]
 =============================================================
 
-1- compiling code that is compatible with c linkage
-2- Using shared libraries from python (Linux/Windows)
+ * compiling code that is compatible with c linkage
+ * Using shared libraries from python (Linux/Windows)
 
 Week 5 [Final Project]
 =============================================================
 -------------------------------------------------------------------------------------------
-|Please place your code for your team in the folder week5.                                |
-|Remember to introduce a readme file and PLEASE DON'T ERASE THE CODE of your partners :)  |
-|The deadline for the final project is FRIDAY.                                            |
+ Please place your code for your team in the folder week5.                                
+ Remember to introduce a readme file and PLEASE DON'T ERASE THE CODE of your partners
+ 
+ The deadline for the final project is FRIDAY.                                            
 -------------------------------------------------------------------------------------------
 Thank you so much to be in this lightning course.
 I hope you enjoy it and learn a bit more from c++.
