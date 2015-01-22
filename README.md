@@ -63,16 +63,18 @@ This week we will see the following topics
 2- Oral exam (Wednesday 10 mins for each student)
 
 Week 4 [Theoretical]
+=============================================================
 
 1- compiling code that is compatible with c linkage
 2- Using shared libraries from python (Linux/Windows)
 
 Week 5 [Final Project]
-
-Please place your code for your team in the folder week5.
-Remember to introduce a readme file and PLEASE DON'T ERASE THE CODE of your partners :)
-The deadline for the final project is FRIDAY.
-
+=============================================================
+-------------------------------------------------------------------------------------------
+|Please place your code for your team in the folder week5.                                |
+|Remember to introduce a readme file and PLEASE DON'T ERASE THE CODE of your partners :)  |
+|The deadline for the final project is FRIDAY.                                            |
+-------------------------------------------------------------------------------------------
 Thank you so much to be in this lightning course.
 I hope you enjoy it and learn a bit more from c++.
 
