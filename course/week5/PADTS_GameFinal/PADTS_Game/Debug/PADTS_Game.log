@@ -1,0 +1,70 @@
+﻿Compilación iniciada a las 24/01/2015 03:55:52 a.m..
+     1>Proyecto "C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\PADTS_Game\PADTS_Game.vcxproj" en el nodo 2 (Rebuild destinos).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\PADTS_Game\include" /I"C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\PADTS_Game\include\\" /Iinclude\ /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Bala.cpp Enemy.cpp main.cpp Objeto.cpp SDL_Fus.cpp SoundEffect.cpp soundhandler.cpp
+         soundhandler.cpp
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(97): warning C4244: 'inicializando' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(110): warning C4244: '=' : conversión de 'float' a 'char'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(111): warning C4244: '=' : conversión de 'float' a 'char'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(137): warning C4244: '=' : conversión de 'float' a 'char'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(138): warning C4244: '=' : conversión de 'float' a 'char'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(322): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(326): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(392): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(396): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(401): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(405): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(417): warning C4101: 'ptr4' : variable local sin referencia
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\soundhandler.cpp(418): warning C4101: 'ptr2' : variable local sin referencia
+         SoundEffect.cpp
+         SDL_Fus.cpp
+         Objeto.cpp
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\objeto.cpp(18): warning C4305: '=' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\objeto.cpp(81): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\objeto.cpp(82): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
+         main.cpp
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(188): warning C4244: 'argumento' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(216): warning C4305: 'argumento' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(218): warning C4305: 'argumento' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(225): warning C4305: 'argumento' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(227): warning C4305: 'argumento' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(240): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(253): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(268): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(425): warning C4018: '<' : no coinciden signed/unsigned
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\main.cpp(431): warning C4018: '<' : no coinciden signed/unsigned
+         Enemy.cpp
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(12): warning C4244: '=' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(20): warning C4244: '=' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(27): warning C4244: '=' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(28): warning C4244: '=' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(32): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(35): warning C4305: '=' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(39): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(42): warning C4305: '=' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(46): warning C4244: '=' : conversión de 'double' a 'float'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(49): warning C4305: '=' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(143): warning C4305: '+=' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(147): warning C4305: '+=' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(185): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\enemy.cpp(186): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
+         Bala.cpp
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\bala.cpp(25): warning C4305: '+=' : truncamiento de 'double' a 'float'
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\bala.cpp(62): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
+     1>c:\users\sr. julio castillo\documents\visual studio 2012\projects\padts_gamefinal\padts_game\bala.cpp(63): warning C4244: '=' : conversión de 'float' a 'int'; posible pérdida de datos
+         Generando código...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\Debug\PADTS_Game.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\PADTS_Game\lib" /LIBPATH:"C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\PADTS_Game\lib\\" /LIBPATH:lib\ SDL2.lib SDL2main.lib irrKlang.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\Debug\PADTS_Game.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\Debug\PADTS_Game.lib" /MACHINE:X86 Debug\Bala.obj
+         Debug\Enemy.obj
+         Debug\main.obj
+         Debug\Objeto.obj
+         Debug\SDL_Fus.obj
+         Debug\SoundEffect.obj
+         Debug\soundhandler.obj
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: la biblioteca predeterminada'msvcrt.lib' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
+         PADTS_Game.vcxproj -> C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\Debug\PADTS_Game.exe
+     1>Compilación del proyecto terminada "C:\Users\Sr. Julio Castillo\Documents\Visual Studio 2012\Projects\PADTS_GameFinal\PADTS_Game\PADTS_Game.vcxproj" (Rebuild destinos).
+
+Compilación correcta.
+
+Tiempo transcurrido 00:00:05.85
