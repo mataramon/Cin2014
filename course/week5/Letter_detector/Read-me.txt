@@ -1,0 +1,34 @@
+Proyecto Fruta-DidactaV2.0
+
+El siguiente programa funciona en ubuntu, para poder instalarlo por favor siga las siguientes instrucciones:
+
+1.- ejecute desde la terminal el script llamado installer.sh, Durante el proceso se descargaran varios
+ complementos necesarios para que funcione apropiadamente, por favor acepte todos los cambios que
+ se realizaran durante el proceso. (el proceso puede tardar un poco asi que porfavor tenga paciencia)
+ 
+2.-Se necesitara configurar algunos complementos que se necesitaran para lo cual siga las siguientes 
+instrucciones:
+	2.1.- En la terminal ejecute el siguiente comando en el directorio Home:
+		sudo gedit /etc/ld.so.conf.d/opencv.conf
+	2.2.- Agregue la siguiente linea al archivo que se abrio con el comando anterior:
+		/usr/local/lib
+		-Puede que el archivo este vacio, pero esto no generara ningun problema, simplemente,
+		agregue el comando, guarde el archivos y cierrelo.
+	2.3.- En la terminal ejecute el siguiente comando:
+		sudo ldconfig
+		-Esta linea configurara las bibliotecas necesarias para una apropiada ejecucion
+	2.4.- En la terminal ejecute el siguiente comando:
+		sudo gedit /etc/bash.bashrc
+	2.5.- Agregue las siguientes lineas al archivo que se abrio con el comando anterior:
+		-Se deben agregar al final del archivo, para evitar problemas
+		PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+		export PKG_CONFIG_PATH
+
+3.- La configuracion ya casi esta lista, ahora se necesitara que su maquina se reinicie para que se termine de 
+configurar su equipo.
+
+4.- En la terminal, dirijase al directorio donde se encuentra el archivo descomprimido y ejecute el script
+ llamado compiler.sh, este prepara los archivos para dejar un archivo ejecutable llamado ProyectoV2, el cual se 
+ ejecutara inmediatamente.
+ 
+ 
