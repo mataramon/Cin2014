@@ -1,0 +1,12 @@
+To start you need first to program the arduino, in the folder Arduino inos exists 3
+projects:
+
+    DTH11_recieve: need it to plot the data adquire from the sensor DTH11, the step next is
+                   run the script start, inside the script you can change parameters like,
+                   how much samples you need.
+    
+    gps_recive: Extract the information of the gps, and display in the por serial (write in C)
+    
+    GPS_with_class: the same objetive, other approached (gps_recive)
+                   
+             

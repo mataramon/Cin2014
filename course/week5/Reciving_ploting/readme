@@ -1,0 +1,5 @@
+Project to plot the data acquire by a DTH11 sensor (Temperature and Humiduty)
+and recieve data from a GPS and display in the serial port.
+Members:
+    Isaac Gutierrez Arrazola
+    David Ivan Paredes Cardona
