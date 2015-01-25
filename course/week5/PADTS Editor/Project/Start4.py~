@@ -1,0 +1,67 @@
+import subprocess
+import Tkinter
+from tkFileDialog import *
+from Tkinter import *
+	
+def Ver():
+	print(var.get())
+	
+def openfile(): 
+	path = askopenfilename( filetypes = [("bit map picture",".bmp")]); print path
+
+def compilefile():
+	subprocess.call(["bash", "compile.sh"])
+
+def closefile():
+	closefile.quit
+
+root = Tk()
+root.geometry("280x250") ## Set the coordenadas 
+root.title("PADTS Editor 1.0") ## Set the principal name of the app
+var = StringVar()
+entrada = StringVar()
+
+imagen1=PhotoImage(file="/home/joanvaro/Pictures/padts.png")
+label1 = Label(root, image=imagen1)
+label1.place(x=120,y=70)
+
+menu1 = Menu(root)
+root.config(menu=menu1)
+menu1_1 = Menu(menu1, tearoff=0)
+menu1.add_cascade(label="File", menu = menu1_1)
+menu1_1.add_command(label="Open", command = openfile)
+menu1_1.add_separator()
+menu1_1.add_command(label="Close", command = root.destroy)
+
+lblSelect=Label(text="Select an image")
+lblSelect.place(x=10,y=10)
+
+txtUser=Entry(root,textvariable=entrada)
+txtUser.place(x=10,y=30)
+
+boton  = Tkinter.Button(root, text="Browse", command = openfile)
+boton.place(x=180,y=25)
+	
+## Place the Label for Effects
+lblEffect=Label(text="Effects:")
+lblEffect.place(x=10,y=80)
+
+## Place the Radio Buttons to chose the effect 
+rad0 = Radiobutton(root, text="Negative", variable=var, value="Negative", command=Ver)
+rad0.place(x=3,y=100)
+rad1 = Radiobutton(root, text="Bright", variable=var, value="Bright", command=Ver)
+rad1.place(x=3,y=120)
+rad2 = Radiobutton(root, text="Gray", variable=var, value="Gray", command=Ver)
+rad2.place(x=3,y=140)
+rad3 = Radiobutton(root, text="Blue", variable=var, value="Blue", command=Ver)
+rad3.place(x=3,y=160)
+rad4 = Radiobutton(root, text="Green", variable=var, value="Green", command=Ver)
+rad4.place(x=3,y=180)
+rad5 = Radiobutton(root, text="Red", variable=var, value="Red", command=Ver)
+rad5.place(x=3,y=200)
+
+ButtonConvert = Tkinter.Button(root, text="Convert", command=compilefile)
+ButtonConvert.place(x=180,y=200)
+
+var.set(' ')
+root.mainloop()
