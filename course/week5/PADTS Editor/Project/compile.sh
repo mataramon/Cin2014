@@ -1,0 +1,28 @@
+#! /bin/bash
+
+echo "--------COMPILING----------";
+#echo "Determining your operating system"
+OS="$(uname)";
+
+if [ -e "$OS"_image.exec ]
+    then
+        rm "$OS"_image.exec
+    fi
+
+#echo "Compiling"
+if [ $OS = "Linux" ]
+then
+    g++ one.cpp -std=c++11 -o "$OS"_image.exec
+fi
+
+if [ $OS = "Darwin" ]
+    then
+    clang++ one.cpp -std=c++11 -stdlib=libc++ -o "$OS"_image.exec;
+fi
+
+#echo "Execution privs"
+chmod +x "$OS"_image.exec;
+echo "-PADTS Editor 1.0 Authors: Antonio Valdez, Gabriel Elizondo & Israel Vera";
+echo "------ DONE -----";
+echo "Executing: "
+./"$OS"_image.exec

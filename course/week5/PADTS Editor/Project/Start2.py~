@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import Tkinter
+
+def funcion():
+   print "upload image"
+
+def fuct():
+	print "Chose one effect"
+
+root = Tkinter.Tk()
+boton  = Tkinter.Button(root, text="Image", command=funcion)
+boton2 = Tkinter.Button(root, text="Effect", command=fuct)
+boton.pack(side=LEFT)
+boton2.pack(side=RIGHT)
+root.mainloop()

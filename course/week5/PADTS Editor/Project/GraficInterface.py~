@@ -1,0 +1,71 @@
+import subprocess
+import Tkinter
+from tkFileDialog import *
+from Tkinter import *
+
+def compilefile():
+	subprocess.call(["bash", "compile.sh"])
+
+def Original():
+	subprocess.call(["display", "lenna.bmp"])
+
+def Brighter():
+	subprocess.call(["display", "brighter.bmp"])
+	
+def Darker():
+	subprocess.call(["display", "darker.bmp"])
+
+def Gray():
+	subprocess.call(["display", "Gray.bmp"])
+
+def Negative():
+	subprocess.call(["display", "negative.bmp"])
+
+def Red():
+	subprocess.call(["display", "redish.bmp"])
+
+def Start():
+	subprocess.call(["bash", "Start.sh"])
+
+root = Tk()
+root.geometry("280x250") ## Set the coordenadas 
+root.title("PADTS Editor 1.0") ## Set the principal name of the app
+var = StringVar()
+entrada = StringVar()
+
+imagen1=PhotoImage(file="padts.png")
+label1 = Label(root, image=imagen1)
+label1.place(x=120,y=70)
+
+menu1 = Menu(root)
+root.config(menu=menu1)
+menu1_1 = Menu(menu1, tearoff=0)
+menu1.add_cascade(label="File", menu = menu1_1)
+menu1_1.add_command(label="Close", command = root.destroy)
+	
+## Place the Label for Effects
+lblEffect=Label(text="Effects:")
+lblEffect.place(x=10,y=62)
+
+## Place the Radio Buttons to chose the effect 
+rad0 = Tkinter.Button(root, text="Original", command=Original)
+rad0.place(x=3,y=20)
+rad1 = Tkinter.Button(root, text="Brighter", command=Brighter)
+rad1.place(x=3,y=80)
+rad2 = Tkinter.Button(root, text="Darker", command=Darker)
+rad2.place(x=3,y=110)
+rad3 = Tkinter.Button(root, text="Gray", command=Gray)
+rad3.place(x=3,y=140)
+rad4 = Tkinter.Button(root, text="Negative", command=Negative)
+rad4.place(x=3,y=170)
+rad5 = Tkinter.Button(root, text="Red", command=Red)
+rad5.place(x=3,y=200)
+
+ButtonConvert = Tkinter.Button(root, text="Convert", command=compilefile)
+ButtonConvert.place(x=180,y=200)
+
+ButtonStart = Tkinter.Button(root, text="Start", command=Start)
+ButtonStart.place(x=180,y=20)
+
+var.set(' ')
+root.mainloop()

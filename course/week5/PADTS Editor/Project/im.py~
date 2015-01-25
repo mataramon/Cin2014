@@ -1,0 +1,13 @@
+from Tkinter import *
+import tkMessageBox
+ 
+ventana=Tk()
+entrada=Entry(ventana)
+ 
+def accion_boton():
+      contenido=entrada.get()
+      tkMessageBox.showinfo("prueba de ventanita", "has escrito " + contenido)
+ 
+boton=Button(ventana, text="click aqui", command=accion_boton)
+entrada.pack()
+boton.pack()

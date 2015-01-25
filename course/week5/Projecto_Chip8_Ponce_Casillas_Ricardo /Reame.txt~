@@ -1,0 +1,92 @@
+Para compilarlo se necesita las librerias de glut
+
+sudo apt-get install freeglut3 freeglut3-dev
+
+-Es posible que no quede bien y tenga que instalar 
+
+sudo apt-get install binutils-gold
+
+el proyecto consta de 3 partes corechip8.h , corechip8.cpp y Emulator.cpp
+
+en la primera parte definí las caracteresticas de interprete las cuales son:
+
+-  Program Counter "PC" de 16 bits.
+-  stack pointer "SP" es de 8 bits pero lo deje de 16 bits.
+-  Index Register "I" el registro de direccionamiento de memoria de 16 bits.
+-  "Opcode" un espacio de 16 bits para guardar la instruccion para su decodificacion e ejecucio.
+-  16 registros de 8 bits "V0~VF", VF es el registro de banderas y de carry.
+-  espacio de memoria "Memory" de 4 kbytes. 
+   +----------------+=0xFFF
+   |0x200 a 0xFFF   |
+   |Espacio de Dato |
+   |                |
+   |                |
+   |                |
+   |                |
+   |                |
+   +- - - - - - - --+=0x600 empieza los programas de la ETI 660
+   |                |
+   |                |
+   |                |
+   +----------------+=0x200 empiezan la mayoria de programas
+   |0x051 a 0x1FF   |
+   |espacio del     |
+   |  interprete    |
+   |                |
+   +----------------+=0x050 inicio del interprete no usado esta en 0's
+   |    font        |
+   |                |
+   +----------------+
+
+-stack de 512bytes creado con 16 espacios de 16 bits
+-2 timer de 16 bits uno para los retardos y otro para el beep del sonido.
+
+Entradas y salidas 
+- 16 botones de entrada "Keys"
+ las cuales son en teclado 
+1,2,3,4,q,w,e,r,a,s,d,f,z,x,c,v. las cuales son:
+1,2,3,c,4,5,6,d,7,8,9,e,a,0,b,f. respectivamente (si pregunta controles para los juegos no se xD)
+-una pantalla de 64 x 32 pixeles "Screen"
+
+Los metodos 
+- el emulador de ciclo fetch-decoder-exectute llamado FDXemulate.
+- el decrementador del timer DecrementTimer
+- el cargador del juego en memoria.
+- el constructor y destructor 
+- el que inicia datos 
+
+En el segundo archivo se definieron los metodos
+
+el mas importante de estos es el de ciclo fetch: 
+   en ella estan alojadas 35 instrucciones
+ para obtener la instruccion se juntaron 2 datos de memoria por lo cual se salta el PC en 2, para poder identificar la instruccion se creo una mascara para poder obtener dicha parte necesaria, y se generaron los case's.
+para poder comparar y acomodar correctamente los datos se uso la operacion de desplazamiento. 
+se deja adjunto el documento con el cual puede ver las instrucciones (solo se usaron las de std chip 8).
+
+en la tercera parte se uso una libreria para poder visualizar los resultados que manda nuestro interprete.
+fue para facilitar el manejo de la salida, se crea el espacio de memoria para la pantalla, se crea el objeto,
+se creo las funciones de los botones cuando estan presionados y cuando se deja de presionar KeyUp,KeyDown respectivamente, esto por que la funcion de los botones te lo pide:
+	glutKeyboardFunc(keyDown);
+	glutKeyboardUpFunc(keyUp);
+
+se genero una matrix con espacio ortogonal para poder escribir como si fuera matrix lo que necesitamos para muestro caso en:
+
+void initGL();
+
+donde se ejectuta la funcion FDXemule es en render donde tambien se genera la matrix de salida para posterior visualizarla:
+
+void render();
+
+por ultimo ya que la salida solo seria un pixel se genera cuadros de un tamaño mayor para poder visualizar dicha salida con la funcion:
+
+void draw_square(float x_coord, float y_coord);
+
+
+
+
+para poder compilar se usa el comando:
+g++ -lGL -lglut -lGLU Emulator.cpp corechip8.cpp -o Emulator.exec
+
+
+Caualquier cosa mi correo es doujutsu@hotmail.com 
+
