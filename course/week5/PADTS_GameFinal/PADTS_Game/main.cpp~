@@ -7,8 +7,8 @@
 #include "Enemy.h"
 #include "soundhandler.h"
 #include "SoundEffect.h"
-#include "SDL/SDL.h"		// SDL, biblioteca grafica
-#include "SDL/SDL_timer.h"	//biblioteca de timers
+#include "SDL.h"		// SDL, biblioteca grafica
+#include "SDL_timer.h"	//biblioteca de timers
 
 //const int SCREEN_WIDTH = 640;
 //const int SCREEN_HEIGHT = 480;

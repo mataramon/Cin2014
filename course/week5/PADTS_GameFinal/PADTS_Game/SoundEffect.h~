@@ -10,7 +10,7 @@
 #include <conio.h>
 #include <Windows.h>
 #else
-#include "common/conio.h"
+#include <conio.h>
 #endif
 
 #pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll

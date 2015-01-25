@@ -1,6 +1,7 @@
 #include <math.h>
 #include "Enemy.h"
 
+
 Enemy::Enemy( )	// Recibe valores "semilla" para generar posicion inicial pseudoaleatoria. Estos son: pos de jugador, pos de mouse, numero de balas y numero de elementos en el mapa
 {
 	tipo = rand() % 3;	// Elige entre 0 ~ 2

@@ -108,7 +108,7 @@ void Objeto::borrar()
 		SDL_FreeSurface(Sprites[SPRITE_LIFE]);
 }
 
-void Objeto::danio(int cantidad)
+void Objeto::daño(int cantidad)
 {
 	vida -= cantidad;
 	if(vida <= 0)

@@ -47,6 +47,6 @@ class Objeto
 	virtual bool cargaImagenes();
 	void mover(float dX, float dY);
 	virtual void muestra_imagen(SDL_Surface * screen);
-	virtual void danio(int cantidad);
+	virtual void daño(int cantidad);
 	bool dispara();
 };
