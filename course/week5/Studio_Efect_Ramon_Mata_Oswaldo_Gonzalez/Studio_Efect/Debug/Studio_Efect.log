@@ -1,0 +1,23 @@
+﻿Compilación iniciada a las 26/01/2015 20:35:38.
+     1>Proyecto "C:\Users\OSWALDO\documents\visual studio 2012\Projects\Studio_Efect\Studio_Efect\Studio_Efect.vcxproj" en el nodo 2 (Build destinos).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /FUInterop\Interop.WMPLib.1.0.dll /FUInterop\AxInterop.WMPLib.1.0.dll /analyze- /errorReport:prompt /clr:nostdlib Studio_Efect.cpp Visual.cpp
+         Studio_Efect.cpp
+     1>c:\users\oswaldo\documents\visual studio 2012\projects\studio_efect\studio_efect\Visual.h(34): warning C4101: 'filename' : variable local sin referencia
+         Visual.cpp
+     1>c:\users\oswaldo\documents\visual studio 2012\projects\studio_efect\studio_efect\Visual.h(34): warning C4101: 'filename' : variable local sin referencia
+         Generando código...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\OSWALDO\documents\visual studio 2012\Projects\Studio_Efect\Debug\Studio_Efect.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Studio_Efect.Visual.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\OSWALDO\documents\visual studio 2012\Projects\Studio_Efect\Debug\Studio_Efect.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Riffile.obj
+         Debug\tremolo.obj
+         Debug\Studio_Efect.obj
+         Debug\Visual.obj
+         Debug\wave.obj
+         Debug\Workspace.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+         Studio_Efect.vcxproj -> C:\Users\OSWALDO\documents\visual studio 2012\Projects\Studio_Efect\Debug\Studio_Efect.exe
+     1>Compilación del proyecto terminada "C:\Users\OSWALDO\documents\visual studio 2012\Projects\Studio_Efect\Studio_Efect\Studio_Efect.vcxproj" (Build destinos).
+
+Compilación correcta.
+
+Tiempo transcurrido 00:00:03.59

@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Studio_Efect", "Studio_Efect\Studio_Efect.vcxproj", "{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup", "Setup\Setup.isproj", "{5F1E9525-63F4-4FEB-951A-75E214E105F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Win32 = CD_ROM|Win32
+		Debug|Win32 = Debug|Win32
+		DVD-5|Win32 = DVD-5|Win32
+		Release|Win32 = Release|Win32
+		SingleImage|Win32 = SingleImage|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.CD_ROM|Win32.ActiveCfg = Release|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.CD_ROM|Win32.Build.0 = Release|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.Debug|Win32.Build.0 = Debug|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.DVD-5|Win32.ActiveCfg = Debug|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.DVD-5|Win32.Build.0 = Debug|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.Release|Win32.ActiveCfg = Release|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.Release|Win32.Build.0 = Release|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.SingleImage|Win32.ActiveCfg = Release|Win32
+		{A3AD32AD-ADCF-43D5-9E66-1EB551B6CA15}.SingleImage|Win32.Build.0 = Release|Win32
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.CD_ROM|Win32.ActiveCfg = CD_ROM
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.CD_ROM|Win32.Build.0 = CD_ROM
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.Debug|Win32.ActiveCfg = DVD-5
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.Debug|Win32.Build.0 = DVD-5
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.DVD-5|Win32.ActiveCfg = DVD-5
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.DVD-5|Win32.Build.0 = DVD-5
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.Release|Win32.ActiveCfg = SingleImage
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.Release|Win32.Build.0 = SingleImage
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.SingleImage|Win32.ActiveCfg = SingleImage
+		{5F1E9525-63F4-4FEB-951A-75E214E105F2}.SingleImage|Win32.Build.0 = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
