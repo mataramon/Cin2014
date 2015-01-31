@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/edit_paste.png</file>
+        <file>Icons/edit_copy.png</file>
+        <file>Icons/edit_cut.png</file>
+        <file>Icons/file_save-as.png</file>
+        <file>Icons/file_save.png</file>
+        <file>Icons/file_open.png</file>
+        <file>Icons/file_new.png</file>
+        <file>Icons/edit_redo.png</file>
+        <file>Icons/edit_undo.png</file>
+        <file>Icons/file_exit.png</file>
+        <file>Icons/help_about.png</file>
+        <file>Icons/view_zoom-in.png</file>
+        <file>Icons/view_zoom-out.png</file>
+    </qresource>
+</RCC>
